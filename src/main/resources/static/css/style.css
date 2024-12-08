@@ -1,0 +1,96 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+	  flex-direction: column;
+    }
+	main {
+	  flex: 1; /* Pushes the footer to the bottom */
+	}
+	html, body {
+	  margin: 0;
+	  padding: 0;
+	  height: 100%; /* Full-height for parent containers */
+	}
+    header {
+      background: linear-gradient(45deg, #87CEEB, #00BFFF); /* Sky Blue Gradient */
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+    nav {
+      margin: 20px 0;
+      text-align: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: #00BFFF;
+      margin: 0 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #333;
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: #e0f7fa; /* Light Cyan */
+    }
+    .hero h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    .hero p {
+      margin: 0 auto;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+    .feature {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .feature h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      font-size: 16px;
+      color: #555;
+    }
+	footer {
+	  background: #00BFFF; /* Deep Sky Blue */
+	  color: white;
+	  text-align: center;
+	  padding: 2px 0;
+	  margin-top: 10px; /* Ensures no unnecessary margins */
+	}
+	
+	footer .disclaimer {
+	  margin-top: 5px;
+	  font-size: 12px;
+	  color: #f0f0f0; /* Slightly lighter for distinction */
+	}

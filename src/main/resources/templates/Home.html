@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CommonUtils - Simplify Your Daily Tasks</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:insert="~{fragments/header :: header}" >...</div>
+  
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  
+  <section class="hero">
+    <h2>Effortlessly Manage Everyday Utilities</h2>
+    <p>Split Excel files, convert documents, compress images, and much more with just a few clicks.</p>
+  </section>
+  
+  <section id="features" class="features">
+    <div class="feature">
+      <h3>Excel Splitter</h3>
+      <p>Split Excel files based on columns quickly and efficiently.</p>
+    </div>
+    <div class="feature">
+      <h3>Image Compressor</h3>
+      <p>Compress large images while maintaining quality.</p>
+    </div>
+    <div class="feature">
+      <h3>Document Converter</h3>
+      <p>Convert files between multiple formats in seconds.</p>
+    </div>
+  </section>
+  
+  
+  <div th:insert="~{fragments/footer :: footer}" >...</div>
+
+</body>
+</html>
