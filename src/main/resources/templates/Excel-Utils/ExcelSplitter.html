@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Common Utils - Excel Splitter</title>
-	<link th:href="@{/css/style.css}" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Splitter - CommonUtils</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-    
-	<div th:insert="~{fragments/header :: header}" >...</div>
-	<div th:insert="~{fragments/footer :: footer}" >...</div>
+  <!-- Header -->
+  <div th:insert="~{fragments/header :: header}" >...</div>
+  
+  <!-- Main Section -->
+  <main class="Excel-splitter">
+    <section class="intro">
+      <h2>Excel Splitter</h2>
+      <p>Upload your Excel file and split it based on the columns of your choice.</p>
+    </section>
 
+    <form action="/excel-splitter/" method="post" enctype="multipart/form-data" class="splitter-form">
+      <!-- File Upload -->
+      <div class="form-group">
+        <label for="file">Upload File:</label>
+        <input type="file" name="file" id="file" accept=".xlsx, .xls, .csv" required>
+      </div>
+      
+      <!-- Column Selection -->
+      <div class="form-group">
+        <label for="columns">Select Columns to Split By:</label>
+        <input type="text" name="columns" id="columns" placeholder="e.g., Name, Excel, Domain" required>
+        <small>Enter column names separated by commas.</small>
+      </div>
+      
+      <!-- Output Options -->
+      <div class="form-group">
+        <label>Output Format:</label>
+        <div>
+          <input type="radio" name="outputFormat" id="singleFile" value="singleFile" required>
+          <label for="singleFile">Single File with Multiple Sheets</label>
+        </div>
+        <div>
+          <input type="radio" name="outputFormat" id="multipleFiles" value="multipleFiles">
+          <label for="multipleFiles">Multiple Files</label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit">Split Files</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <div th:insert="~{fragments/footer :: footer}">...</div>
+  
 </body>
 </html>

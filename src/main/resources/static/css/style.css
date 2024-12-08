@@ -94,3 +94,82 @@ body {
 	  font-size: 12px;
 	  color: #f0f0f0; /* Slightly lighter for distinction */
 	}
+	
+	
+/* Excel Page Styler */
+
+.Excel-splitter {
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.Excel-splitter h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.Excel-splitter p {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #555;
+}
+
+.splitter-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.splitter-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.splitter-form .form-group div {
+  display: inline-block;
+  margin-right: 20px; /* Space between radio buttons */
+}
+
+.splitter-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.splitter-form input[type="text"],
+.splitter-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.splitter-form small {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #777;
+}
+
+.splitter-form input[type="radio"] {
+  margin-right: 10px;
+}
+
+.splitter-form button {
+  background: #00BFFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.splitter-form button:hover {
+  background: #007acc;
+}
