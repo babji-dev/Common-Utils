@@ -5,6 +5,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.commonUtils.ExceptionHandler.ColumnNotFoundException;
+import com.commonUtils.enums.ExcelOutputFormat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class ExcelSplitter {
 
-    public static Map<String, Workbook> splitFileByColumn(MultipartFile file, String coulumnsDelimaterSeparted, String outputType) throws IOException {
+    public static Map<String, Workbook> splitFileByColumn(MultipartFile file, String coulumnsDelimaterSeparted, ExcelOutputFormat outputType) throws IOException {
         Workbook originalWorkbook = WorkbookFactory.create(file.getInputStream());
         Sheet originalSheet = originalWorkbook.getSheetAt(0);
         

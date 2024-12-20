@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.commonUtils.enums.ExcelOutputFormat;
 import com.commonUtils.utils.ExcelSplitter;
 
 @Controller
@@ -27,7 +28,7 @@ public class ExcelUtilController {
 	@PostMapping("/excel-Splitter")
 	public ResponseEntity<byte[]>  excelSplitterProcesser(@RequestParam MultipartFile file,
             @RequestParam String columns,
-            @RequestParam String outputFormat) throws IOException {
+            @RequestParam ExcelOutputFormat outputFormat) throws IOException {
 		
 		if (file.isEmpty() || !file.getOriginalFilename().endsWith(".xlsx")) {
             return ResponseEntity.badRequest().body(null);
@@ -35,24 +36,24 @@ public class ExcelUtilController {
 		
 		Map<String, Workbook> splittedFiles = ExcelSplitter.splitFileByColumn(file, columns, outputFormat);
 		
-		// If multiple files, zip them
-        if ("multiple".equalsIgnoreCase(outputFormat)) {
-            ByteArrayOutputStream zipOutputStream = ExcelSplitter.createZipFromWorkbooks(splittedFiles);
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=split-files.zip")
-                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                    .body(zipOutputStream.toByteArray());
-        } else {
-            // Return single file
-            Workbook workbook = splittedFiles.values().iterator().next();
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            workbook.write(outputStream);
-            workbook.close();
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=split-file.xlsx")
-                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                    .body(outputStream.toByteArray());
-        }
+		
+		if(ExcelOutputFormat.MULTIPLE_FILES.equals(outputFormat)) {
+			ByteArrayOutputStream zipOutputStream = ExcelSplitter.createZipFromWorkbooks(splittedFiles);
+	        return ResponseEntity.ok()
+	                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=split-files.zip")
+	                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+	                .body(zipOutputStream.toByteArray());
+		}else if(ExcelOutputFormat.SAME_FILE_WITH_MULTIPLE_SHEETS.equals(outputFormat)) {
+			// Need to be implemented
+		}
+		
+		ByteArrayOutputStream zipOutputStream = ExcelSplitter.createZipFromWorkbooks(splittedFiles);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=split-files.zip")
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(zipOutputStream.toByteArray());
+		
+		
 	}
 
 }
