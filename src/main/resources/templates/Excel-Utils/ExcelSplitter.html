@@ -16,7 +16,10 @@
       <h2>Excel Splitter</h2>
       <p>Upload your Excel file and split it based on the columns of your choice.</p>
     </section>
-
+	<div th:if="${errorMessage}" class="alert" role="alert">
+	    <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+	    <strong>Warning!</strong> <span th:text="${errorMessage}"></span>
+	</div>
     <form action="/excel-Splitter" method="post" enctype="multipart/form-data" class="splitter-form">
       <!-- File Upload -->
       <div class="form-group">
@@ -39,7 +42,7 @@
           <label for="singleFile">Single File with Multiple Sheets</label>
         </div>
         <div>
-          <input type="radio" name="outputFormat" id="MULTIPLE_FILES" value="multipleFiles">
+          <input type="radio" name="outputFormat" id="MULTIPLE_FILES" value="MULTIPLE_FILES">
           <label for="multipleFiles">Multiple Files</label>
         </div>
       </div>

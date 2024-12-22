@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tester</title>
+	<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:insert="~{fragments/header :: header}" >...</div>
+	<section class="Excel-splitter intro">
+	    <h2>Regex Tester</h2>
+	</section>
+    <form id="regexForm" class="splitter-form">
+        <label for="pattern">Regex Pattern:</label><br>
+        <textarea id="pattern" name="pattern" rows="2" cols="50"></textarea><br>
+        <label for="text">Test Text:</label><br>
+        <textarea id="text" name="text" rows="5" cols="50"></textarea><br>
+        <label for="flags">Flags:</label>
+        <select id="flags" name="flags">
+            <option value="0">None</option>
+            <option value="2">Case Insensitive</option>
+            <option value="8">Multiline</option>
+        </select><br><br>
+        <button type="button" onclick="testRegex()">Test</button>
+		<div id="result"></div>
+    </form>
+    <script>
+        async function testRegex() {
+            const form = document.getElementById('regexForm');
+            const pattern = form.pattern.value;
+            const text = form.text.value;
+            const flags = parseInt(form.flags.value);
+
+            const response = await fetch('/regex-tester/test', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pattern, text, flags })
+            });
+
+            const result = await response.json();
+            const resultDiv = document.getElementById('result');
+
+            if (result.valid) {
+                resultDiv.innerHTML = `<h3>Matches:</h3><ul>${result.matches.map(match => `<li>${match}</li>`).join('')}</ul>`;
+            } else {
+                resultDiv.innerHTML = `<h3>Error:</h3><p>${result.error}</p>`;
+            }
+        }
+    </script>
+	<!-- Footer -->
+	<div th:insert="~{fragments/footer :: footer}">...</div>
+</body>
+</html>

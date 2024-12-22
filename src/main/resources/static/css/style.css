@@ -81,6 +81,10 @@ body {
       font-size: 16px;
       color: #555;
     }
+	.atagHomePage {
+		text-decoration: none;
+		color: inherit;
+	}
 	footer {
 	  background: #00BFFF; /* Deep Sky Blue */
 	  color: white;
@@ -173,3 +177,35 @@ body {
 .splitter-form button:hover {
   background: #007acc;
 }
+
+
+.alert {
+      width: 40%;
+      margin: 20px auto;
+      padding: 15px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+      font-family: Arial, sans-serif;
+      position: relative;
+      text-align: center;
+    }
+    .alert strong {
+      font-weight: bold;
+    }
+    .alert .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #856404;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .alert .close:hover {
+      color: #533f03;
+    }
