@@ -1,10 +1,12 @@
 package com.commonUtils.entity;
 
+import com.commonUtils.Security.Service.CustomUserDetailsService;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity(name = "User")
 @Data
@@ -14,7 +16,6 @@ import lombok.Setter;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "userId",columnDefinition = "userId")
     private String userId;
 
@@ -32,5 +33,8 @@ public class User {
 
     @Column(name = "roles")
     private String roles;
+
+    @Column(name = "enabled")
+    private boolean enabled;
 
 }
