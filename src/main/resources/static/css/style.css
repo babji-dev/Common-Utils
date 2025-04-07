@@ -13,6 +13,7 @@ body {
 	  margin: 0;
 	  padding: 0;
 	  height: 100%; /* Full-height for parent containers */
+	  overflow-y: hidden;
 	}
     header {
       background: linear-gradient(45deg, #87CEEB, #00BFFF); /* Sky Blue Gradient */
@@ -91,6 +92,7 @@ body {
 	  text-align: center;
 	  padding: 2px 0;
 	  margin-top: 10px; /* Ensures no unnecessary margins */
+	  position:relative;
 	}
 	
 	footer .disclaimer {

@@ -50,7 +50,7 @@ public class RegexTesterController {
         }
         return ResponseEntity.ok(response);
     }
-	
+
 	@GetMapping
 	public String regexTester() {
 		return "Regex-Utils/Regex-Tester";
