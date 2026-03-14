@@ -22,4 +22,9 @@ public class ServerIpStatus {
         return testValue;
     }
 
+    @GetMapping("")
+    public String test() throws Exception {
+        return "Im Working No issues";
+    }
+
 }
